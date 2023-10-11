@@ -3,6 +3,7 @@
  * @author Cam
  * @author ?
  */
+import java.util.*;
 public class VirtualPet {
     
     VirtualPetFace face;
@@ -16,6 +17,7 @@ public class VirtualPet {
         face.setMessage("Hello.");
     }
     
+
     public void feed() {
         if (hunger > 10) {
             hunger = hunger - 10;
@@ -41,5 +43,7 @@ public class VirtualPet {
         hunger = hunger + 1;
         face.setImage("asleep");
     }
+
+
 
 } // end Virtual Pet

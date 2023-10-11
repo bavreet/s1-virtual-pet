@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.*;
 
 public class Runner {
     public Runner(){
@@ -16,10 +17,22 @@ public class Runner {
         String s = (String)JOptionPane.showInputDialog(
                     new JFrame(),
                     q,
-                    "Get a Response",
+                    "Get reponse",
                     JOptionPane.PLAIN_MESSAGE
-        );
+);
+
         return s;
+    }
+
+    public int getIntResponse(){
+        String s = (String)JOptionPane.showInputDialog(
+            new JFrame(),
+         "How many laps should I run?",
+         "Question?",
+         JOptionPane.PLAIN_MESSAGE
+       );
+    int x = Integer.parseInt(s);
+    return x;
     }
 
     public void takeABeat(int milliseconds){

@@ -5,7 +5,7 @@
 
 
 ////////////////////////////////////////////
-
+import java.awt.Font;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -111,6 +111,9 @@ public class VirtualPetFace extends JFrame implements ActionListener{
         scroll.setSize(new Dimension(width, height/2));
         textArea.setPreferredSize(new Dimension(width, height/2));
         textArea.setSize(new Dimension(width, height/2));
+        Font f = new Font(Font.SANS_SERIF,Font.BOLD, 16);
+        textArea.setFont(f);
+
 
 
         c.fill = GridBagConstraints.HORIZONTAL;
