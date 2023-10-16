@@ -3,7 +3,11 @@
  * @author Cam
  * @author ?
  */
+import java.awt.Component;
 import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 public class VirtualPet {
     
     VirtualPetFace face;
@@ -43,6 +47,38 @@ public class VirtualPet {
         hunger = hunger + 1;
         face.setImage("asleep");
     }
+
+    public void eat(String x){
+        String ans = getResponse("What do you want to eat?");
+
+
+    }
+
+    public String getResponse(String q){
+        String s = (String)JOptionPane.showInputDialog(
+                    new JFrame(),
+                    q,
+                    "Get reponse",
+                    JOptionPane.PLAIN_MESSAGE
+);
+
+        return s;
+    }
+
+    Object[] options = {"Banana",
+                    "Burger",
+                    "Ice Cream"};
+    private Component frame;
+    int n = JOptionPane.showOptionDialog(frame,
+        "Would you like some green eggs to go "
+        + "with that ham?",
+        "A Silly Question",
+        JOptionPane.YES_NO_CANCEL_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        options,
+        options[2]);
+
 
 
 
