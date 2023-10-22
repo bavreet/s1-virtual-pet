@@ -2,8 +2,16 @@ import javax.swing.*;
 import java.util.*;
 
 public class Runner {
+    VirtualPetFace face;
     public Runner(){
+        face = new VirtualPetFace();
         VirtualPet p = new VirtualPet();
+        p.start();
+        face.setMessage("You will go through a sequence of challenges.");
+        takeABeat(1000);
+        face.setMessage("Pick the wrong choices and face the consequences.");
+        takeABeat(3000);
+        p.eat();
         p.exercise();
         takeABeat(1000);
         p.feed();
@@ -19,10 +27,12 @@ public class Runner {
                     q,
                     "Get reponse",
                     JOptionPane.PLAIN_MESSAGE
-);
+                );
+
 
         return s;
     }
+
 
     public int getIntResponse(){
         String s = (String)JOptionPane.showInputDialog(

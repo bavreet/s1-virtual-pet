@@ -18,7 +18,6 @@ public class VirtualPet {
     public VirtualPet() {
         face = new VirtualPetFace();
         face.setImage("normal");
-        face.setMessage("Hello.");
     }
     
 
@@ -48,10 +47,28 @@ public class VirtualPet {
         face.setImage("asleep");
     }
 
-    public void eat(String x){
-        String ans = getResponse("What do you want to eat?");
+    // public void eat(String x){
+    //     String ans = getResponse("What do you want to eat?");
 
 
+    // }
+    public void eat() {
+        Object[] options = {"Banana", "Burger", "Ice Cream"};
+        Component frame = null; // You can set the parent frame to null if not needed.
+        int choice = JOptionPane.showOptionDialog(frame,
+                "What do you want to eat?",
+                "Question",
+                JOptionPane.DEFAULT_OPTION, // Just a single option.
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]); // Default selection is the first option (Banana).
+    
+        if (choice != JOptionPane.CLOSED_OPTION) {
+            String selectedOption = (String) options[choice];
+            System.out.println("You chose: " + selectedOption);
+            // You can do something with the selected option here.
+        }
     }
 
     public String getResponse(String q){
@@ -65,21 +82,22 @@ public class VirtualPet {
         return s;
     }
 
-    Object[] options = {"Banana",
-                    "Burger",
-                    "Ice Cream"};
-    private Component frame;
-    int n = JOptionPane.showOptionDialog(frame,
-        "Would you like some green eggs to go "
-        + "with that ham?",
-        "A Silly Question",
-        JOptionPane.YES_NO_CANCEL_OPTION,
-        JOptionPane.QUESTION_MESSAGE,
-        null,
-        options,
-        options[2]);
 
-        //testtesteeajfeilfjeaifjeaifjaesifaeifjeaifjaeilfjesilfjeasijfesifjlesij
+    public void start(){
+        face.setMessage("Hello, this is a fitness based game");
+        takeABeat(1000);
+        String a = getResponse("Would you like to continue?");
+        while(!a.equals("Yes")&&!a.equals("yes")){
+            a = getResponse("Would you like to continue?");
+        }
+    }
+
+    public void takeABeat(int milliseconds){
+        try {//this catches errors. Thread interrupts the process do it doesn't keep running. Like hitting pause in snap.
+            Thread.sleep(1000); //milliseconds
+        } catch(Exception e){
+        }
+    }
 
 
 
