@@ -2,17 +2,15 @@ import javax.swing.*;
 import java.util.*;
 
 public class Runner {
-    VirtualPetFace face;
     public Runner(){
-        face = new VirtualPetFace();
         VirtualPet p = new VirtualPet();
         p.start();
-        face.setMessage("You will go through a sequence of challenges.");
-        takeABeat(1000);
-        face.setMessage("Pick the wrong choices and face the consequences.");
-        takeABeat(3000);
-        p.eat();
-        p.exercise();
+        p.setMessage("You will go through a sequence of challenges.");
+        takeABeat(2000);
+        p.setMessage("Pick the wrong choices and face the consequences.");
+        takeABeat(10000);
+        p.eight();
+        
         takeABeat(1000);
         p.feed();
         takeABeat(4000);
@@ -20,6 +18,7 @@ public class Runner {
         String ans = getResponse("How was your day?");
         System.out.println(ans);
     }
+
 
     public String getResponse(String q){
         String s = (String)JOptionPane.showInputDialog(
