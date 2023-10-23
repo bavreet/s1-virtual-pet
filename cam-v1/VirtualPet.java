@@ -335,19 +335,24 @@ public class VirtualPet {
                 options[0]); 
         if(choice == 0){
             String userChoice = choices("Where do you want to run?","Berkeley","San Francisco","Florida");
-            if(user){
+            if(userChoice.equals("Florida")){
                 setMessage("You've died from exhaustion!");
                 takeABeat(10000);
                 setMessage("Game Over");
                 takeABeat(10000);
                 System.exit(0);
             }
-            if()
+            else{
+                four(10,10,10,2);
+                check();
+                setMessage("Whew! That was tiring!");
+                takeABeat(10000);
+            }
         }
         if(choice == 1){
             setMessage("Awesome!");
             takeABeat(4000);
-            String userChoice = choices("Where do you want to walk?","local park","Spiderman's house","beach");
+            String userChoice = choices("How much do you want to swim?","local park","Spiderman's house","beach");
             if(userChoice.equals("local park")){
                 four(20,5,5,1); // no need to check for any of them at this point because no possiblity
                 check();
