@@ -10,11 +10,9 @@ public class Runner {
         p.setMessage("Pick the wrong choices and face the consequences.");
         takeABeat(10000);
         p.eight();
+        p.twelve();
+        p.six();
         
-        takeABeat(1000);
-        p.feed();
-        takeABeat(4000);
-        p.exercise();
         String ans = getResponse("How was your day?");
         System.out.println(ans);
     }

@@ -120,35 +120,43 @@ public class VirtualPet {
             }
             else{
                 feed();
-                setMessage("Yum!");
                 takeABeat(4000);
                 health -= 30;
-                //don't need to check if health is 0 bc no possibility here
+                check();
             }
         }
         if(choice == 1){
             setMessage("Awesome!");
             takeABeat(4000);
-            String userChoice = choices("Where do you want to walk?","local park","Spiderman's house","");
+            String userChoice = choices("Where do you want to walk?","local park","Spiderman's house","beach");
             if(userChoice.equals("local park")){
-                //walk method
                 four(20,5,5,1); // no need to check for any of them at this point because no possiblity
+                check();
+                setMessage("That was nice!");
+                takeABeat(10000);
 
             }
             if(userChoice.equals("Spiderman's house")){
                     //set image dead and end code here
                     setMessage("You've died of exhaustion");
                     takeABeat(10000);
+                    setMessage("Game Over");
+                    takeABeat(10000);
                     System.exit(0);
             }
             if(userChoice.equals("beach")){
                 four(10,10,10,1); //no need to run if hunger > 40 because no chance
+                check();
+                setMessage("That was nice!");
+                takeABeat(10000);
             }
 
         }
         if(choice == 2){
             four(0,2,-5,0);
-            System.out.println(tiredness);
+            check();
+            setMessage("zzz...");
+            takeABeat(10000);
         }
 
     }
@@ -161,15 +169,225 @@ public class VirtualPet {
     }
 
 
+    //checks
+    public void healthCheck(){
+        if(health <= 0){
+            setMessage("You became too healthy!");
+            takeABeat(10000);
+            setMessage("Game Over");        
+            takeABeat(10000);
+            System.exit(0);
+        }
+    }
+
+    public void tirednessCheck(){
+        if(tiredness >= 40){
+            setMessage("You've died of exhaustion!");
+            takeABeat(10000);
+            setMessage("Game Over");
+            takeABeat(10000);
+            System.exit(0);
+        }
+    }
+
+    public void happinessCheck(){
+        if(happiness <= 0){
+            setMessage("You've become too unhappy!");
+            takeABeat(10000);
+            String userChoice = choices("Take a break","Watch TV","Go to the movies","Ignore");
+            if(userChoice.equals("Ignore")){
+                setMessage("After a long journey, you've lost hope.");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+            } 
+            else{
+                four(0,0,0,10);
+                //image here
+                setMessage("You feel better now");
+                takeABeat(10000);
+            }
+        }
+    }
+
+    public void hungerCheck(){
+        if(hunger >= 40){
+            setMessage("You have starved!");
+            takeABeat(10000);
+            setMessage("Game Over");
+            takeABeat(10000);
+            System.exit(0);
+        }
+    }
+    public void check(){
+        hungerCheck();
+        happinessCheck();
+        healthCheck();
+        tirednessCheck();
+    }
+
+    public void twelve(){
+        Object[] options = {"eat", "play basketball", "Rob a bank"};
+        Component frame = null; 
+        int choice = JOptionPane.showOptionDialog(frame,
+            "It's 12pm. What would you like to do.",
+                "Question",
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]); 
+        if(choice == 0){
+            String userChoice = choices("What would you like to eat?","Crushed cherry pits(delicious)","salad","salmon");
+            if(userChoice.equals("Crushed cherry pits(delicious)")){
+                setMessage("You've died from cyanide poisoning!");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+            }
+            if(userChoice.equals("salad")){
+                feed();
+                takeABeat(10000);
+                four(5,0,0,0);
+                check();
+            }
+            if(userChoice.equals("salmon")){
+                feed();
+                takeABeat(10000);
+                four(10,0,0,0);
+                check();
+            }
+        }
+        if(choice == 1){
+            setMessage("Awesome!");
+            takeABeat(4000);
+            String userChoice = choices("How intense?","Pick-up game","Shoot around","Play horse");
+            if(userChoice.equals("Pick-up game")){
+                setMessage("Wow, this is fun!");
+                takeABeat(10000);
+                four(10,10,10,5);
+                check();
+
+            }
+            if(userChoice.equals("Shoot around")){
+                    setMessage("This is fun!");
+                    takeABeat(10000);
+                    four(3,3,3,5);
+                    check();
+            }
+            if(userChoice.equals("Play horse")){
+                setMessage("This is fun!");
+                takeABeat(10000);
+                four(4,4,4,5); 
+                check();
+            }
+
+        }
+        if(choice == 2){
+            String userChoice = choices("How do you want to proceed?","March straight in","Mask on and go in","Drop in by helicopter");
+            if(userChoice.equals("March straight in")){
+                setMessage("You've been caught!");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+            }
+            if(userChoice.equals("Mask on and go in")){
+                setMessage("You've been caught!");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+                //do the spongebob robbing image
+            }
+            if(userChoice.equals("Drop in by helicopter")){
+                four(0,5,5,5);
+                check();
+                setMessage("Mission successful!");
+                takeABeat(10000);
+                String userchoi = choices("Now that you're rich, would you like to continue?","Totally","Yes","No");
+                if(userchoi.equals("No")){
+                    setMessage("Cool! You'll be unhealthy, but at least you're rich!");
+                    takeABeat(10000);
+                    System.exit(0);
+                }
+                else{
+                    setMessage("Great!");
+                    takeABeat(10000);
+                }
+            }
+        }
+
+    }
+
+    public void six(){
+        Object[] options = {"run", "swim", "go to the gym"};
+        Component frame = null; 
+        int choice = JOptionPane.showOptionDialog(frame,
+            "It's 6pm. What would you like to do.",
+                "Question",
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]); 
+        if(choice == 0){
+            String userChoice = choices("Where do you want to run?","Berkeley","San Francisco","Florida");
+            if(user){
+                setMessage("You've died from exhaustion!");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+            }
+            if()
+        }
+        if(choice == 1){
+            setMessage("Awesome!");
+            takeABeat(4000);
+            String userChoice = choices("Where do you want to walk?","local park","Spiderman's house","beach");
+            if(userChoice.equals("local park")){
+                four(20,5,5,1); // no need to check for any of them at this point because no possiblity
+                check();
+                setMessage("That was nice!");
+                takeABeat(10000);
+
+            }
+            if(userChoice.equals("Spiderman's house")){
+                    //set image dead and end code here
+                    setMessage("You've died of exhaustion");
+                    takeABeat(10000);
+                    setMessage("Game Over");
+                    takeABeat(10000);
+                    System.exit(0);
+            }
+            if(userChoice.equals("beach")){
+                four(10,10,10,1); //no need to run if hunger > 40 because no chance
+                check();
+                setMessage("That was nice!");
+                takeABeat(10000);
+            }
+
+        }
+        if(choice == 2){
+            four(0,2,-5,0);
+            check();
+            setMessage("zzz...");
+            takeABeat(10000);
+        }
+
+    }
+
+
+
+
 //hunger for every related method
 //tiredness for every related method
 //happiness for every related method. maybe.
 //health
-// if(health == 0){
-//                     //set image dead and end code here
-//                     takeABeat(10000);
-//                     System.exit(0);
-//                 } useful later
+//method for death and images
 //should have methods that check for hunger, tiredness, health, and happiness. Run them whenever it's possibile they cross a certian threshold
-//should make a method that adjusts all instead of writing hunger += 1, tiredness... all the time
+//set images
 } // end Virtual Pet
