@@ -352,37 +352,82 @@ public class VirtualPet {
         if(choice == 1){
             setMessage("Awesome!");
             takeABeat(4000);
-            String userChoice = choices("How much do you want to swim?","local park","Spiderman's house","beach");
-            if(userChoice.equals("local park")){
+            String userChoice = choices("How much do you want to swim?","1000m","10000m","across the Pacific Ocean");
+            if(userChoice.equals("1000m")){
                 four(20,5,5,1); // no need to check for any of them at this point because no possiblity
                 check();
                 setMessage("That was nice!");
                 takeABeat(10000);
 
             }
-            if(userChoice.equals("Spiderman's house")){
-                    //set image dead and end code here
-                    setMessage("You've died of exhaustion");
-                    takeABeat(10000);
-                    setMessage("Game Over");
-                    takeABeat(10000);
-                    System.exit(0);
-            }
-            if(userChoice.equals("beach")){
-                four(10,10,10,1); //no need to run if hunger > 40 because no chance
+            if(userChoice.equals("10000m")){
+                four(-50,30,30,-5);
                 check();
-                setMessage("That was nice!");
+                setMessage("Wow. That was really hard!");
                 takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
+            }
+            if(userChoice.equals("across the Pacific Ocean")){
+                setMessage("You've died from exhaustion!");
+                takeABeat(10000);
+                setMessage("Game Over");
+                takeABeat(10000);
+                System.exit(0);
             }
 
         }
         if(choice == 2){
-            four(0,2,-5,0);
-            check();
-            setMessage("zzz...");
-            takeABeat(10000);
+            String userChoice = choices("What would you like to do at the gym?","Cardio","Upper body","Lower body");
+            if(userChoice.equals("Cardio")){
+                four(10,10,10,1); // no need to check for any of them at this point because no possiblity
+                check();
+                setMessage("Whew!");
+                takeABeat(10000);
+
+            }
+            if(userChoice.equals("Upper body")){
+                four(5,5,5,10);
+                check();
+                setMessage("I feel stronger already!");
+                takeABeat(10000);
+            }
+            if(userChoice.equals("Lower body")){
+                four(5,5,5,10);
+                check();
+                setMessage("I feel stronger already!");
+                takeABeat(10000);
+            }
         }
 
+    }
+
+    public void ten(){
+        Object[] options = {"Sleep", "Pull an all nighter for your chemistry test"};
+        Component frame = null; 
+        int choice = JOptionPane.showOptionDialog(frame,
+            "It's 10pm. What would you like to do.",
+                "Question",
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]); 
+        if(choice == 0){
+                setMessage("Congratulations!");
+                takeABeat(10000);
+                setMessage("You've completed the game.");
+                takeABeat(10000);
+                System.exit(0);
+        }
+        else{
+           four(-30,10,20,-10); 
+           check();
+           setMessage("You've managed to maintain a healthy lifestyle while getting good grades. Good job.");
+           takeABeat(10000);
+           System.exit(0);
+        }
     }
 
 

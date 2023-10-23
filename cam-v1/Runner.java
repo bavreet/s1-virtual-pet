@@ -12,6 +12,7 @@ public class Runner {
         p.eight();
         p.twelve();
         p.six();
+        p.ten();
         
         String ans = getResponse("How was your day?");
         System.out.println(ans);
