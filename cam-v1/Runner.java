@@ -13,9 +13,6 @@ public class Runner {
         p.twelve();
         p.six();
         p.ten();
-        
-        String ans = getResponse("How was your day?");
-        System.out.println(ans);
     }
 
 
@@ -26,8 +23,6 @@ public class Runner {
                     "Get reponse",
                     JOptionPane.PLAIN_MESSAGE
                 );
-
-
         return s;
     }
 
