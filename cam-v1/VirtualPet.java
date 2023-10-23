@@ -107,7 +107,7 @@ public class VirtualPet {
         Object[] options = {"eat", "go for a walk", "continue sleeping"};
         Component frame = null; 
         int choice = JOptionPane.showOptionDialog(frame,
-            "It's 8:00am. What would you like to do.",
+            "It's 8am. What would you like to do.",
                 "Question",
                 JOptionPane.DEFAULT_OPTION, 
                 JOptionPane.QUESTION_MESSAGE,
@@ -203,7 +203,7 @@ public class VirtualPet {
                 System.exit(0);
             } 
             else{
-                four(0,0,0,10);
+                four(-5,5,-10,10);
                 //image here
                 setMessage("You feel better now");
                 takeABeat(10000);
@@ -250,7 +250,7 @@ public class VirtualPet {
             if(userChoice.equals("salad")){
                 feed();
                 takeABeat(10000);
-                four(5,0,0,0);
+                four(5,0,0,-7);
                 check();
             }
             if(userChoice.equals("salmon")){
@@ -274,7 +274,7 @@ public class VirtualPet {
             if(userChoice.equals("Shoot around")){
                     setMessage("This is fun!");
                     takeABeat(10000);
-                    four(3,3,3,5);
+                    four(3,3,3,2);
                     check();
             }
             if(userChoice.equals("Play horse")){
@@ -303,10 +303,10 @@ public class VirtualPet {
                 //do the spongebob robbing image
             }
             if(userChoice.equals("Drop in by helicopter")){
-                four(0,5,5,5);
-                check();
+                four(0,5,5,-5);
                 setMessage("Mission successful!");
                 takeABeat(10000);
+                check();
                 String userchoi = choices("Now that you're rich, would you like to continue?","Totally","Yes","No");
                 if(userchoi.equals("No")){
                     setMessage("Cool! You'll be unhealthy, but at least you're rich!");
@@ -381,20 +381,20 @@ public class VirtualPet {
         if(choice == 2){
             String userChoice = choices("What would you like to do at the gym?","Cardio","Upper body","Lower body");
             if(userChoice.equals("Cardio")){
-                four(10,10,10,1); // no need to check for any of them at this point because no possiblity
-                check();
+                four(10,10,10,-5); // no need to check for any of them at this point because no possiblity
                 setMessage("Whew!");
+                check();
                 takeABeat(10000);
 
             }
             if(userChoice.equals("Upper body")){
                 four(5,5,5,10);
-                check();
                 setMessage("I feel stronger already!");
+                check();
                 takeABeat(10000);
             }
             if(userChoice.equals("Lower body")){
-                four(5,5,5,10);
+                four(5,5,5,-5);
                 check();
                 setMessage("I feel stronger already!");
                 takeABeat(10000);
